@@ -1,6 +1,6 @@
 import React from 'react'
 import './CourseInfo.scss';
-const CourseInfo = () => {
+const CourseInfo = ({courseArr}) => {
   return (
     <div>CourseInfo</div>
   )
