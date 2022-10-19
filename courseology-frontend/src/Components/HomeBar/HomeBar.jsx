@@ -2,7 +2,10 @@ import React from 'react'
 import './HomeBar.scss';
 const HomeBar = () => {
   return (
-    <div>HomeBar</div>
+    <div className='home-bar'>
+        <h1>Courseology</h1>
+        <img src="" alt="" />
+    </div>
   )
 }
 
