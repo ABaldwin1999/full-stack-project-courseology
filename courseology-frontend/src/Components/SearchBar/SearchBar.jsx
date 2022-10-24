@@ -1,8 +1,8 @@
 import React from 'react'
 import './SearchBar.scss';
-const SearchBar = () => {
+const SearchBar = ({inputType, handleSearchInput, spell}) => {
   return (
-    <input type="text" name="input-box" id="input-box" className='input-box'/>
+    <input type="text" name="input-box" id="input-box" spellCheck={spell} className={inputType} onChange={handleSearchInput}/>
   )
 }
 

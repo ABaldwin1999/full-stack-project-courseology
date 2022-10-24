@@ -1,10 +1,11 @@
 import React from 'react'
 import './HomeBar.scss';
-const HomeBar = () => {
+import Button from '../Button/Button';
+const HomeBar = ({user}) => {
   return (
     <div className='home-bar'>
         <h1>Courseology</h1>
-        <img src="" alt="" />
+      {user&& <Button text="Login" buttonStyle="button__login" />}
     </div>
   )
 }
