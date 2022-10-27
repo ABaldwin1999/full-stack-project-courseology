@@ -1,0 +1,26 @@
+@use "../../styles/variables" as *;
+.button{
+    padding: $padding-small;
+    width: 100px;
+    height: 40px;
+    border-radius: $padding-medium;
+    &__login{
+        background-color: $color-primary-light;
+        color: $color-secondary-light;
+        border: 2px solid  $color-secondary;
+    }
+    &__login:hover{
+        background-color: $color-primary-dark;
+        color: $color-primary-light;
+    }
+    &__update{
+        background-color: $color-primary-light;
+        color: $color-secondary-light;
+        border: 2px solid  $color-secondary;
+    }
+    &__update:hover{
+        background-color: $color-primary-dark;
+        color: $color-primary-light;
+    }
+
+}

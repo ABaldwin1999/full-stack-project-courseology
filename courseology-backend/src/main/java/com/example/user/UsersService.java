@@ -73,12 +73,12 @@ public class UsersService {
 
     // DELETE
     @Transactional
-    public void deleteUserById(String userName) {
+    public void deleteUserByUsername(String userName) {
         if (!usersRepository.existsById(Long.valueOf(userName))) {
             throw new UserNotFoundException();
         }
 
-        usersRepository.deleteUserById(userName);
+        usersRepository.deleteUserByUsername(userName);
     }
     ////Encrypt
 

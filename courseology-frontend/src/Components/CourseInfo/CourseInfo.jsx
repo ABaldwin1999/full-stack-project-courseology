@@ -1,13 +1,15 @@
 import React from 'react'
+import { useParams } from 'react-router-dom';
 import Button from '../Button/Button';
 import './CourseInfo.scss';
-const CourseInfo = ({courseArr,user}) => {
+const CourseInfo = ({thisCourse,user}) => {
   return (
-    <div>CourseInfo
-
+    <div>
+      <h1>{thisCourse.title}</h1>
+      <h2>Course leader = {thisCourse.createdBy}</h2>
+      <p>{thisCourse.syllabus}</p>
+      <p>Price: £{thisCourse.price}</p>
       {user&& <Button text="Bookmark"/>}
-      {admin&& <Button text="Update"/>}
-      {admin&& <Button text="Delete"/>}
     </div>
   )
 }

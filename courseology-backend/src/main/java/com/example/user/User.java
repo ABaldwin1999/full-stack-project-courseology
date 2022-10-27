@@ -1,7 +1,8 @@
 package com.example.user;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import com.example.course.Course;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -14,10 +15,11 @@ public class User {
     private String email;
     private LocalDate birthDate;
 
-    List<Long> interestedIn;
+    @ElementCollection
+    private List<Long> interestedIn;
 
 
-    private boolean admin;
+    private boolean admin = false;
 
     public User() {
     }

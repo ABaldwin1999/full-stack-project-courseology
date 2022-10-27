@@ -30,29 +30,29 @@ public class UsersController {
 
     // READ
 
-    @GetMapping("/user/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable String userName) {
-        return ResponseEntity.status(HttpStatus.OK).body(usersService.getUserById(userName));
+    @GetMapping("/user/{username}")
+    public ResponseEntity<User> getUserById(@PathVariable String username) {
+        return ResponseEntity.status(HttpStatus.OK).body(usersService.getUserById(username));
     }
     @GetMapping("/user/usernames")
     public ResponseEntity<List<String>> getAllUsernames() {
         return ResponseEntity.status(HttpStatus.OK).body(usersService.getAllUsernames());
     }
-    @GetMapping("/user/{id}/interestedIn")
+    @GetMapping("/user/{username}/interestedIn")
     public ResponseEntity<List<Course>> getInterestedIn(@PathVariable String username) {
         return ResponseEntity.status(HttpStatus.OK).body(usersService.getInterestedIn(username));
     }
-    @GetMapping("/user/{id}/{password}")
+    @GetMapping("/user/verify/{username}")
     public ResponseEntity<Boolean> verifyPassword(@PathVariable String username, @PathVariable String passwordAttempt ) {
         return ResponseEntity.status(HttpStatus.OK).body(usersService.verifyPassword(username, passwordAttempt));
     }
 
     // UPDATE
 
-    @PutMapping("/user/{id}")
-    public ResponseEntity<User> updateUser(@RequestBody User newUser, @PathVariable String userName) {
-        newUser.setUsername(userName);
-        usersService.updateUser(newUser, userName);
+    @PutMapping("/user/{username}")
+    public ResponseEntity<User> updateUser(@RequestBody User newUser, @PathVariable String username) {
+        newUser.setUsername(username);
+        usersService.updateUser(newUser, username);
         return ResponseEntity.status(HttpStatus.OK).body(newUser);
     }
 
@@ -60,7 +60,7 @@ public class UsersController {
 
     @DeleteMapping("/user/{id}")
     public ResponseEntity<Void> deleteUserById(@PathVariable String userName) {
-        usersService.deleteUserById(userName);
+        usersService.deleteUserByUsername(userName);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
     

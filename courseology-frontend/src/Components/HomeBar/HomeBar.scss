@@ -1,6 +1,6 @@
 @use "../../styles/variables" as *;
 
-.home-bar {
+.home-bar{
   width: 100vw;
   display: flex;
   justify-content: space-between;
@@ -8,9 +8,13 @@
   background-color:$color-primary;
   border-bottom: $padding-small solid $color-secondary;
   padding:$padding-medium;
+  &__buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
   h1 {
-    text-decoration: none;
-    font-size: 18px;
+    background-color:$color-primary;
     color: $color-black;
   }
 }

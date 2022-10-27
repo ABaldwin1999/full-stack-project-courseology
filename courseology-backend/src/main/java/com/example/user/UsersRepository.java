@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface UsersRepository extends JpaRepository<User, Long> {
-    void deleteUserById(String userName);
+    void deleteUserByUsername(String userName);
 }

@@ -22,7 +22,7 @@ public class CoursesController {
 
     @PostMapping("/courses")
     public ResponseEntity<Course> createCourse(@RequestBody Course course) {
-        CoursesService.addCourse(course);
+        courseService.addCourse(course);
         return ResponseEntity.status(HttpStatus.CREATED).body(course);
     }
 
@@ -63,7 +63,7 @@ public class CoursesController {
 
     // DELETE
 
-    @DeleteMapping("/greeting/{id}")
+    @DeleteMapping("/course/{id}")
     public ResponseEntity<String> deleteCourseById(@PathVariable long id) {
         courseService.deleteCourseById(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
