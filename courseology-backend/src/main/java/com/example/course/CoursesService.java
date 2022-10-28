@@ -62,6 +62,7 @@ public class CoursesService {
     }
 
     // DELETE
+    @Transactional
     public void deleteCourseById(long id) {
         if (!coursesRepository.existsById(id)) {
             throw new CourseNotFoundException();
