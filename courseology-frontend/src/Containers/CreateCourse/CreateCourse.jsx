@@ -1,4 +1,4 @@
-
+import './CreateCourse.scss';
 import CourseForm from '../../Components/CourseForm/CourseForm';
 const CreateCourse = () => {
   const handleSubmit = async course => {
@@ -21,8 +21,8 @@ const CreateCourse = () => {
   const defaultFormState = {createdBy:"", title:"",syllabus:"",category:"",price:""};
 
   return (
-    <section className="create-greeting">
-      <h2 className="create-greeting__title">Create a Course</h2>
+    <section className="create-course">
+      <h2 className="create-course__title">Create a Course</h2>
       <CourseForm handleSubmit={handleSubmit} defaultFormState={defaultFormState} formTitle="Add A New Course" />
     </section>
   );

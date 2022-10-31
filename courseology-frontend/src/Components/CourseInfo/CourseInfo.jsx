@@ -9,7 +9,7 @@ const CourseInfo = ({thisCourse,user}) => {
       <h2>Course leader = {thisCourse.createdBy}</h2>
       <p>{thisCourse.syllabus}</p>
       <p>Price: £{thisCourse.price}</p>
-      {user&& <Button text="Bookmark"/>}
+      {user&& <Button text="Bookmark" buttonStyle="button__form"/>}
     </div>
   )
 }

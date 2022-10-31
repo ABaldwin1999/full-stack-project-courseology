@@ -1,8 +1,17 @@
+@use "../../styles/variables" as *;
 .form-container{
-
+    padding: $padding-large;
+    __title{
+        padding:$padding-small;
+    }
     &__form{
         display: flex;
-        flex-direction: column;
-        
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center;
+    }
+    &__input{
+        width: 300px;
+        margin: $padding-small
     }
 }
