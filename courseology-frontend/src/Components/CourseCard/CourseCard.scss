@@ -4,6 +4,7 @@
     width: 300px;
     height: 200px;
     border: 1px solid $color-white;
+    border-radius: 5px;
     perspective: 1000px; 
     &__inner {
         position: relative;
@@ -12,18 +13,29 @@
         text-align: center;
         transition: transform 0.8s;
         transform-style: preserve-3d;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
       }
     &__front {
         background-color: $color-primary-dark;
         color:$color-secondary-dark;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        h1{
+          padding-top:23%;
+        }
       }
       
     &__back {
-        background-color: $color-secondary-light;
+        background-color: $color-secondary-dark;
         color: $color-white;
         transform: rotateY(180deg);
+        border-radius: 5px;
         p{
           color: $color-white;
+          padding:20%;
         }
       }
   }

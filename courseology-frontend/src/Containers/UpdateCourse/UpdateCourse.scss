@@ -1,0 +1,17 @@
+@use "../../styles/variables" as *;
+.edit-course{
+    &__title{
+        padding:$padding-small;
+    }
+    &__content{
+        width:300px;
+        height: auto;
+        padding: $padding-large;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-content: center;
+        background-color: $color-primary-light;
+        border: 2px solid $color-primary-dark
+    }
+}

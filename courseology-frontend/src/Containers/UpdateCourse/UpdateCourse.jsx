@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import CourseForm from "../../Components/CourseForm/CourseForm"
 import CourseInfo from "../../Components/CourseInfo/CourseInfo";
-
+import './UpdateCourse.scss';
 const UpdateCourse = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -60,18 +60,18 @@ const UpdateCourse = () => {
 
 
   return (
-    <section class="edit-greeting">
-      <h2 class="edit-greeting__title">Edit Course</h2>
-      <div class="edit-greeting__content">
+    <section className="edit-course">
+      <h2 className="edit-course__title">Edit Course</h2>
+      <div className="edit-course__content">
         <CourseInfo thisCourse={course} user={true}/>
-        <div class="edit-greeting__buttons">
+        <div class="edit-course__buttons">
           <button
-            class={showForm ? "edit-greeting__button" : "edit-greeting__button edit-greeting__button--secondary"}
+            className={showForm ? "edit-course__button" : "edit-course__button edit-course__button--secondary"}
             onClick={handleShowForm}
           >
             Update
           </button>
-          <button class="edit-greeting__button edit-greeting__button--secondary" onClick={handleDelete}>
+          <button className="edit-course__button edit-course__button--secondary" onClick={handleDelete}>
             Delete
           </button>
         </div>

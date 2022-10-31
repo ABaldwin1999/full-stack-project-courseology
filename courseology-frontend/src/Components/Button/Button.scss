@@ -1,6 +1,7 @@
 @use "../../styles/variables" as *;
 .button{
     padding: $padding-small;
+    margin: $padding-small;
     width: 100px;
     height: 40px;
     border-radius: $padding-medium;
