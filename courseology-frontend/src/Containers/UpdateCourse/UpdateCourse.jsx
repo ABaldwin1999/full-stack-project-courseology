@@ -40,7 +40,7 @@ const UpdateCourse = () => {
 
   const handleDelete = async updatedCourse => {
 
-    const result = await fetch(`http://localhost:8080/course/${id}`, {
+    const result = await fetch(`http://localhost:8080/courses/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -61,10 +61,9 @@ const UpdateCourse = () => {
 
   return (
     <section className="edit-course">
-      <h2 className="edit-course__title">Edit Course</h2>
       <div className="edit-course__content">
         <CourseInfo thisCourse={course} user={true}/>
-        <div class="edit-course__buttons">
+        <div className="edit-course__buttons">
           <button
             className={showForm ? "edit-course__button" : "edit-course__button edit-course__button--secondary"}
             onClick={handleShowForm}

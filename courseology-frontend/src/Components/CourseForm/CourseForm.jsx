@@ -53,7 +53,7 @@ const CourseForm = ({ defaultFormState, handleSubmit, formTitle }) => {
         />
         <input
           className="form-container__input"
-          type="text"
+          type="number"
           placeholder="Input Course Price"
           value={input.price}
           onInput={event => setInput({ ...input, price: event.target.value })}
