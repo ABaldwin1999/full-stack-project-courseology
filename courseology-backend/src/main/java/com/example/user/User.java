@@ -13,10 +13,8 @@ public class User {
     private String username;
     private String password;
     private String email;
-    private LocalDate birthDate;
 
-    @ElementCollection
-    private List<Long> interestedIn;
+    private String interestedIn;
 
 
     private boolean admin = false;
@@ -24,20 +22,19 @@ public class User {
     public User() {
     }
 
-    public User(String username, String password, String email, LocalDate birthDate, boolean admin,List<Long> interestedIn) {
+    public User(String username, String password, String email, boolean admin,String interestedIn) {
         this.username = username;
         this.password = password;
         this.email = email;
-        this.birthDate = birthDate;
         this.admin = admin;
         this.interestedIn =interestedIn;
     }
 
-    public List<Long> getInterestedIn() {
+    public String getInterestedIn() {
         return interestedIn;
     }
 
-    public void setInterestedIn(List<Long> interestedIn) {
+    public void setInterestedIn(String interestedIn) {
         this.interestedIn = interestedIn;
     }
 
@@ -73,11 +70,4 @@ public class User {
         this.email = email;
     }
 
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
 }

@@ -37,7 +37,7 @@ public class UsersService {
     }
 
     public User getUserById(String userName) {
-        Optional<User> user = usersRepository.findById(Long.valueOf(userName));
+        Optional<User> user = usersRepository.findById(userName);
 
         if (user.isEmpty()) {
             throw new UserNotFoundException();
@@ -46,8 +46,8 @@ public class UsersService {
         return user.get();
     }
 
-    public boolean verifyPassword(String username, String passwordAttempt){
-        return getUserById(username).getPassword().equalsIgnoreCase(encryptPassword(passwordAttempt));
+    public boolean verifyPassword(String username, String password){
+        return getUserById(username).getPassword().equals(encryptPassword(password));
     }
 
     public List<Course> getInterestedIn(String username){
@@ -62,7 +62,7 @@ public class UsersService {
     // UPDATE
 
     public void updateUser(User newUser, String userName) {
-        if (!usersRepository.existsById(Long.valueOf(userName))) {
+        if (!usersRepository.existsById(userName)) {
             throw new UserNotFoundException();
         }
 
@@ -74,7 +74,7 @@ public class UsersService {
     // DELETE
     @Transactional
     public void deleteUserByUsername(String userName) {
-        if (!usersRepository.existsById(Long.valueOf(userName))) {
+        if (!usersRepository.existsById(userName)) {
             throw new UserNotFoundException();
         }
 

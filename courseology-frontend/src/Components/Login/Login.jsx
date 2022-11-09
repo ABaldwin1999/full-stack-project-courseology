@@ -21,16 +21,16 @@ const Login = ({handleLogin, defaultUserState,toggleLogin}) => {
       <h2 className="login-prompt__title">Login</h2>
       <form onSubmit={handleValidation} className="login-prompt__content">
         <label htmlFor="login">Username:</label>
-      <input type="text" name="" id="login" onInput={event => setInput({ ...input, login: event.target.value })}/>
+      <input type="text" id="login" onInput={event => setInput({ ...input, username: event.target.value})}/>
       <label htmlFor="login">Password:</label>
-      <input type="password" name="" id="password" onInput={event => setInput({ ...input, password: event.target.value })}/>
-      </form>
+      <input type="password" id="password" onInput={event => setInput({ ...input, password: event.target.value})}/>
       <div className="login-prompt__button-holder">
-        <Button/>
+        <Button buttonType="submit" buttonStyle="button__form" text="Login"/>
         <Link to={"/user/create"}  style={{ textDecoration: "none" }} onClick={toggleLogin}>
           <p>Create Account</p>
         </Link>
       </div>
+      </form>
     </div>
     </div>
   )

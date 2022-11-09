@@ -43,8 +43,8 @@ public class UsersController {
         return ResponseEntity.status(HttpStatus.OK).body(usersService.getInterestedIn(username));
     }
     @GetMapping("/user/verify/{username}")
-    public ResponseEntity<Boolean> verifyPassword(@PathVariable String username, @PathVariable String passwordAttempt ) {
-        return ResponseEntity.status(HttpStatus.OK).body(usersService.verifyPassword(username, passwordAttempt));
+    public ResponseEntity<Boolean> verifyPassword(@PathVariable String username, @RequestParam String password ) {
+        return ResponseEntity.status(HttpStatus.OK).body(usersService.verifyPassword(username, password));
     }
 
     // UPDATE

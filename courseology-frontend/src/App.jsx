@@ -37,7 +37,10 @@ function App() {
   const defaultUserState = { username: "", password: "" };
 
   const handleLogin = (input) => {
+    console.log("handle Login");
+    console.log(checkPassword(input))
     if (checkPassword(input)) {
+      console.log(checkPassword(input))
       getUserById(input.username);
       setShowLogin(false);
     } else {

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import CourseForm from "../../Components/CourseForm/CourseForm"
 import CourseInfo from "../../Components/CourseInfo/CourseInfo";
+import Button from "../../Components/Button/Button";
 import './UpdateCourse.scss';
 const UpdateCourse = () => {
   const { id } = useParams();
@@ -64,15 +65,10 @@ const UpdateCourse = () => {
       <div className="edit-course__content">
         <CourseInfo thisCourse={course} user={true}/>
         <div className="edit-course__buttons">
-          <button
-            className={showForm ? "edit-course__button" : "edit-course__button edit-course__button--secondary"}
-            onClick={handleShowForm}
-          >
-            Update
-          </button>
-          <button className="edit-course__button edit-course__button--secondary" onClick={handleDelete}>
-            Delete
-          </button>
+          <Button
+            buttonStyle={showForm ? "button__update" : "button__form"}
+            clickEvent={handleShowForm} text="Update"/>
+          <Button buttonStyle="button__form" clickEvent={handleDelete} text="Delete"/>
         </div>
       </div>
       {showForm && <CourseForm defaultFormState={course} formTitle="Update course" handleSubmit={handleUpdate} />}
