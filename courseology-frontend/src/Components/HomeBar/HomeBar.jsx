@@ -10,8 +10,8 @@ const HomeBar = ({user,admin,toggle,displayed,defaultUserState,toggleLogin, show
       <Link to={"/"} style={{ textDecoration: "none" }}> <h1>Courseology</h1></Link> 
       <div className='home-bar__buttons'>
         {!user&& <Button clickEvent={toggleLogin} text="Login" buttonStyle="button__login" />}
-        {!user&& <Profile toggle={toggle} displayed={displayed}/>}
-        {!user&&  <Link to={"/courses/create"} style={{ textDecoration: "none" }}><Button text="Create Course" buttonStyle="button__login" /></Link>}
+        {!user&& <Profile toggle={toggle} displayed={displayed} user={user}/>}
+        {!admin&&  <Link to={"/courses/create"} style={{ textDecoration: "none" }}><Button text="Create Course" buttonStyle="button__login" /></Link>}
         {showLogin &&<Login toggleLogin={toggleLogin} defaultUserState={defaultUserState} handleLogin={handleLogin}/>}
       </div>
     </div>

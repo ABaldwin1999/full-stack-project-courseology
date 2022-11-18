@@ -8,7 +8,8 @@ import CreateCourse from "./Containers/CreateCourse/CreateCourse";
 import UpdateCourse from "./Containers/UpdateCourse/UpdateCourse";
 import CreateUser from "./Containers/CreateUser/CreateUser";
 function App() {
-  const [user, setUser] = useState([]);
+  const [userLogin, setUserLogin] = useState([]);
+  const [user, setUser] = useState(false);
   const [displayed, setDisplayed] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const toggle = () => {
@@ -20,7 +21,7 @@ function App() {
   const getUser = async (username) => {
     const response = await fetch(`http://localhost:8080/user/${username}`);
     const data = await response.json();
-    setUser(data);
+    setUserLogin(data);
   };
   const checkPassword = async (input) => {
     const response = await fetch(
@@ -29,11 +30,6 @@ function App() {
     const data = await response.json();
     return data;
   };
-  const getUserById = async (username) => {
-    const response = await fetch(`http://localhost:8080/user/${username}`);
-    const data = await response.json();
-    setUser(true);
-  };
   const defaultUserState = { username: "", password: "" };
 
   const handleLogin = (input) => {
@@ -41,21 +37,23 @@ function App() {
     console.log(checkPassword(input))
     if (checkPassword(input)) {
       console.log(checkPassword(input))
-      getUserById(input.username);
+      getUser(input.username);
       setShowLogin(false);
+      setUser(true);
     } else {
       ///invalid username
       ///invalid password
     }
-    ///checkpassword
-    ///return true
-    ///return invalid username/invalid password
   };
+  const logout =()=>{
+    setUser(false);
+    setUserLogin([]);
+  }
   return (
     <div className="app">
       <Router>
         <HomeBar
-          admin={user.admin}
+          admin={userLogin.admin}
           loggedIn={false}
           getUser={getUser}
           toggle={toggle}
@@ -66,8 +64,8 @@ function App() {
           handleLogin={handleLogin}
         />
         <Routes>
-          <Route path="/" element={<CourseContainer />} />
-          <Route path="/courses/:id" element={<UpdateCourse />} />
+          <Route path="/" element={<CourseContainer user={user} admin={userLogin.admin} />} />
+          <Route path="/courses/:id" element={<UpdateCourse user={user} />} />
           <Route path="/courses/create" element={<CreateCourse />} />
           <Route path="/user/create" element={<CreateUser />} />
           <Route path="courses/Bookmarked" />

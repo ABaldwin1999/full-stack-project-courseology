@@ -4,7 +4,7 @@ import CourseForm from "../../Components/CourseForm/CourseForm"
 import CourseInfo from "../../Components/CourseInfo/CourseInfo";
 import Button from "../../Components/Button/Button";
 import './UpdateCourse.scss';
-const UpdateCourse = () => {
+const UpdateCourse = ({user}) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [course, setCourse] = useState([]);
@@ -63,7 +63,7 @@ const UpdateCourse = () => {
   return (
     <section className="edit-course">
       <div className="edit-course__content">
-        <CourseInfo thisCourse={course} user={true}/>
+        <CourseInfo thisCourse={course} user={user}/>
         <div className="edit-course__buttons">
           <Button
             buttonStyle={showForm ? "button__update" : "button__form"}
