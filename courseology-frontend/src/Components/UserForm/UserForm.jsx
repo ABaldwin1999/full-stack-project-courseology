@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 import Button from '../Button/Button';
 const UserForm = ({ defaultFormState, handleSubmit, formTitle }) => {
     const [input, setInput] = useState(defaultFormState);
@@ -54,7 +55,7 @@ const UserForm = ({ defaultFormState, handleSubmit, formTitle }) => {
           value={input.confirmPassword}
           onInput={event => setInput({ ...input, confirmPassword: event.target.value })}
         />
-        <Button buttonType="submit" buttonStyle="button__form" text="Submit"/>
+       <Link style={{ textDecoration: "none" }} to="/"><Button buttonType="submit" buttonStyle="button__form" text="Submit"/></Link> 
       </form>
     </div>
     )
