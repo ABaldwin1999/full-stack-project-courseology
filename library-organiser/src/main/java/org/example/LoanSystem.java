@@ -1,2 +1,5 @@
-package org.example;public class LoanSystem {
+package org.example;
+
+public class LoanSystem {
+
 }

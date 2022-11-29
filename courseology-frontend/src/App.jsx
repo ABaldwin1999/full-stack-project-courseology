@@ -40,6 +40,8 @@ function App() {
       getUser(input.username);
       setShowLogin(false);
       setUser(true);
+      console.log("loggedin");
+      console.log(userLogin);
     } else {
       ///invalid username
       ///invalid password
@@ -54,6 +56,8 @@ function App() {
       <Router>
         <HomeBar
           admin={userLogin.admin}
+          userLogin={userLogin}
+          user={user}
           loggedIn={false}
           getUser={getUser}
           toggle={toggle}
@@ -62,6 +66,7 @@ function App() {
           showLogin={showLogin}
           defaultUserState={defaultUserState}
           handleLogin={handleLogin}
+          logout={logout}
         />
         <Routes>
           <Route path="/" element={<CourseContainer user={user} admin={userLogin.admin} />} />

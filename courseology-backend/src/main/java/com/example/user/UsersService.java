@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -51,11 +52,14 @@ public class UsersService {
     }
 
     public List<Course> getInterestedIn(String username){
-        List<Long> interestedInIds = getUserById(username).getInterestedIn();
+        String interestedInIds = getUserById(username).getInterestedIn();
+        String[] interestedArray = interestedInIds.split(" ");
+        List<Long> array = Arrays.stream(interestedArray)
+                .map(arr ->Long.getLong(arr)).collect(Collectors.toList());
         List<Course>  courses = coursesRepository.findAll();
         return courses
                 .stream()
-                .filter(course -> interestedInIds.contains(course.getId()))
+                .filter(course -> array.contains(course.getId()))
                 .collect(Collectors.toList());
     }
 
